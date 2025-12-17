@@ -1,0 +1,282 @@
+{
+    "rice": {
+        "name": "Rice",
+        "water": "High (1000-2500 mm)",
+        "temperature": "20°C - 35°C",
+        "soil": "Clayey, Clay Loam",
+        "season": "Long Rains, Irrigation",
+        "tips": [
+            "Maintain standing water (2-5 cm) during early growth stages.",
+            "Apply nitrogen fertilizer in splits.",
+            "Monitor for pests like Stem Borer."
+        ]
+    },
+    "maize": {
+        "name": "Maize",
+        "water": "Moderate (500-800 mm)",
+        "temperature": "18°C - 27°C",
+        "soil": "Loamy, Sandy Loam",
+        "season": "Long Rains, Short Rains",
+        "tips": [
+            "Ensure good drainage; maize is sensitive to water logging.",
+            "Control weeds specifically during the first 4 weeks.",
+            "Apply Zinc Sulphate if leaves show white streaks."
+        ]
+    },
+    "chickpea": {
+        "name": "Chickpea",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Chickpea_India.jpg",
+        "water": "Low (250-400 mm)",
+        "temperature": "15°C - 25°C",
+        "soil": "Sandy Loam, Clay Loam",
+        "season": "Short Rains (Cool Season)",
+        "tips": [
+            "Avoid sowing in highly alkaline soils.",
+            "Seed treatment with Rhizobium is recommended.",
+            "Nipping encourages branching."
+        ]
+    },
+    "kidneybeans": {
+        "name": "Kidney Beans",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Kidney_beans.jpg/640px-Kidney_beans.jpg",
+        "water": "Moderate",
+        "temperature": "15°C - 25°C",
+        "soil": "Loamy",
+        "season": "Long Rains",
+        "tips": [
+            "Requires well-distributed rainfall.",
+            "Susceptible to frost and water logging.",
+            "Inoculate seeds with Rhizobium phaseoli."
+        ]
+    },
+    "pigeonpeas": {
+        "name": "Pigeon Peas",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Pigeon_pea_pods.jpg/640px-Pigeon_pea_pods.jpg",
+        "water": "Low to Moderate",
+        "temperature": "18°C - 30°C",
+        "soil": "Deep Loamy",
+        "season": "Long Rains / Dry Season",
+        "tips": [
+            "Deep rooted crop, drought tolerant.",
+            "Avoid water logging conditions.",
+            "Intercropping with maize or sorghum is common."
+        ]
+    },
+    "mothbeans": {
+        "name": "Moth Beans",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Vigna_aconitifolia_Seeds.jpg",
+        "water": "Low",
+        "temperature": "25°C - 35°C",
+        "soil": "Sandy",
+        "season": "Short Rains",
+        "tips": [
+            "Highly drought resistant.",
+            "Excellent for soil erosion control.",
+            "Can be grown as a fodder crop."
+        ]
+    },
+    "mungbean": {
+        "name": "Mung Bean",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Mung_beans.jpg/640px-Mung_beans.jpg",
+        "water": "Moderate",
+        "temperature": "25°C - 35°C",
+        "soil": "Sandy Loam",
+        "season": "Short Rains",
+        "tips": [
+            "Short duration crop (60-70 days).",
+            "Yellow Mosaic Virus is a common threat.",
+            "Ensure moisture at pod filling stage."
+        ]
+    },
+    "blackgram": {
+        "name": "Black Gram",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Black_Gram.JPG/640px-Black_Gram.JPG",
+        "water": "Moderate",
+        "temperature": "25°C - 35°C",
+        "soil": "Loam to Clay Loam",
+        "season": "Short Rains",
+        "tips": [
+            "Sensitive to saline and alkaline soils.",
+            "Use phosphatic fertilizers for better root development.",
+            "Harvest when 80% of pods turn black."
+        ]
+    },
+    "lentil": {
+        "name": "Lentil",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Lentils_in_mesh_bag.jpg/640px-Lentils_in_mesh_bag.jpg",
+        "water": "Low",
+        "temperature": "10°C - 25°C",
+        "soil": "Loam to Clay Loam",
+        "season": "Cool Season",
+        "tips": [
+            "Cool climate crop.",
+            "Requires fine seedbed preparation.",
+            "Aphids can be a major pest."
+        ]
+    },
+    "pomegranate": {
+        "name": "Pomegranate",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Pomegranate_03_02_2012.JPG/640px-Pomegranate_03_02_2012.JPG",
+        "water": "Moderate",
+        "temperature": "20°C - 35°C",
+        "soil": "Well Drained",
+        "season": "All Year",
+        "tips": [
+            "Pruning is essential for shape and fruit quality.",
+            "Bacterial Blight is a major disease.",
+            "Fruit cracking can occur due to irregular watering."
+        ]
+    },
+    "banana": {
+        "name": "Banana",
+        "water": "High",
+        "temperature": "20°C - 30°C",
+        "soil": "Rich Loamy",
+        "season": "All Year",
+        "tips": [
+            "Requires high nitrogen and potassium.",
+            "Propping is needed for fruit bunches.",
+            "Desuckering should be done regularly."
+        ]
+    },
+    "mango": {
+        "name": "Mango",
+        "water": "Moderate",
+        "temperature": "20°C - 35°C",
+        "soil": "Alluvial, Lateritic",
+        "season": "Hot Season",
+        "tips": [
+            "Alternate bearing is a common issue.",
+            "Protect from frost during early years.",
+            "Mango hopper is a serious pest."
+        ]
+    },
+    "grapes": {
+        "name": "Grapes",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Abhar-grap.jpg/640px-Abhar-grap.jpg",
+        "water": "Moderate",
+        "temperature": "15°C - 35°C",
+        "soil": "Sandy Loam",
+        "season": "Cool Season / Hot Season",
+        "tips": [
+            "Training and pruning are critical.",
+            "Powdery mildew is a common disease.",
+            "Avoid rain during ripening."
+        ]
+    },
+    "watermelon": {
+        "name": "Watermelon",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg/640px-Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg",
+        "water": "Moderate",
+        "temperature": "25°C - 35°C",
+        "soil": "Sandy Loam",
+        "season": "Hot Season",
+        "tips": [
+            "Requires warm, dry weather for ripening.",
+            "Mulching helps in moisture conservation.",
+            "Fruit fly management is important."
+        ]
+    },
+    "muskmelon": {
+        "name": "Muskmelon",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cantaloupe_and_canary_melon.jpg/640px-Cantaloupe_and_canary_melon.jpg",
+        "water": "Moderate",
+        "temperature": "20°C - 30°C",
+        "soil": "Sandy Loam",
+        "season": "Hot Season",
+        "tips": [
+            "Sensitive to water logging.",
+            "Rotate crops to avoid soil-borne diseases.",
+            "Harvest when 'full slip' stage is reached."
+        ]
+    },
+    "apple": {
+        "name": "Apple",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/640px-Red_Apple.jpg",
+        "water": "Moderate",
+        "temperature": "Cool (4°C - 21°C)",
+        "soil": "Loamy",
+        "season": "Cool Season",
+        "tips": [
+            "Requires chilling hours for flowering.",
+            "Cross-pollination is often necessary.",
+            "Scab is a major disease; monitor regularly."
+        ]
+    },
+    "orange": {
+        "name": "Orange",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/640px-Oranges_-_whole-halved-segment.jpg",
+        "water": "Moderate",
+        "temperature": "15°C - 30°C",
+        "soil": "Sandy Loam",
+        "season": "Cool Season",
+        "tips": [
+            "Avoid water stagnation.",
+            "Micro-nutrient deficiency (Zn, Fe) is common.",
+            "Prune dry and diseased branches."
+        ]
+    },
+    "papaya": {
+        "name": "Papaya",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Papaya_cross_section_BNC.jpg/640px-Papaya_cross_section_BNC.jpg",
+        "water": "Moderate",
+        "temperature": "20°C - 30°C",
+        "soil": "Sandy Loam",
+        "season": "All Year",
+        "tips": [
+            "Highly sensitive to frost and water logging.",
+            "Papaya Ring Spot Virus is a major threat.",
+            "Harvest when fruit shows color break."
+        ]
+    },
+    "coconut": {
+        "name": "Coconut",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Cocos_nucifera_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-042.jpg/640px-Cocos_nucifera_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-042.jpg",
+        "water": "High",
+        "temperature": "20°C - 30°C",
+        "soil": "Coastal Sandy",
+        "season": "All Year",
+        "tips": [
+            "Requires high humidity.",
+            "Rhinoceros beetle is a common pest.",
+            "Apply salt along with fertilizers for better yield."
+        ]
+    },
+    "cotton": {
+        "name": "Cotton",
+        "water": "Moderate",
+        "temperature": "20°C - 30°C",
+        "soil": "Black Cotton Soil",
+        "season": "Long Rains",
+        "tips": [
+            "Deep ploughing helps control soil-borne pests.",
+            "Topping checks excessive growth.",
+            "Pink Bollworm management is critical."
+        ]
+    },
+    "jute": {
+        "name": "Jute",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jute_field_in_Bangladesh_%282%29.jpg/640px-Jute_field_in_Bangladesh_%282%29.jpg",
+        "water": "High",
+        "temperature": "25°C - 35°C",
+        "soil": "Alluvial",
+        "season": "Wet Season",
+        "tips": [
+            "Requires water for retting procedure.",
+            "Weeding is crucial in early stages.",
+            "Harvest at small pod stage for best fiber quality."
+        ]
+    },
+    "coffee": {
+        "name": "Coffee",
+        "water": "High",
+        "temperature": "15°C - 25°C",
+        "soil": "Forest Loam",
+        "season": "All Year",
+        "tips": [
+            "Requires shade trees.",
+            "Pruning is necessary to maintain bush shape.",
+            "Berry Borer is a major pest."
+        ]
+    }
+}
