@@ -1,74 +1,116 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:http/http.dart' as http;
 
+/// InferenceService - API-based crop recommendation
+/// Uses the FastAPI backend hosted on Render
 class InferenceService {
-  Interpreter? _interpreter;
-  List<String>? _labels;
-  Map<String, dynamic>? _normalizationParams;
+  static const String _apiUrl = 'https://farmwise-api.onrender.com';
 
-  bool get isLoaded =>
-      _interpreter != null && _labels != null && _normalizationParams != null;
+  bool _isReady = false;
 
-  List<String> get labels => _labels ?? [];
+  bool get isLoaded => _isReady;
+
+  // Labels for reference (matches backend model)
+  final List<String> labels = [
+    'rice',
+    'maize',
+    'chickpea',
+    'kidneybeans',
+    'pigeonpeas',
+    'mothbeans',
+    'mungbean',
+    'blackgram',
+    'lentil',
+    'pomegranate',
+    'banana',
+    'mango',
+    'grapes',
+    'watermelon',
+    'muskmelon',
+    'apple',
+    'orange',
+    'papaya',
+    'coconut',
+    'cotton',
+    'jute',
+    'coffee',
+  ];
 
   Future<void> init() async {
+    // No need to block on health check - just mark ready
+    // API errors will be caught at predict time
+    _isReady = true;
+  }
+
+  /// Predict crop based on soil and weather parameters
+  /// Returns the recommended crop name
+  Future<String> predict(Map<String, double> inputFeatures) async {
+    final body = {
+      'N': inputFeatures['N'],
+      'P': inputFeatures['P'],
+      'K': inputFeatures['K'],
+      'temperature': inputFeatures['temperature'],
+      'humidity': inputFeatures['humidity'],
+      'ph': inputFeatures['ph'],
+      'rainfall': inputFeatures['rainfall'],
+    };
+
     try {
-      _interpreter = await Interpreter.fromAsset('assets/model.tflite');
-      final labelsData = await rootBundle.loadString('assets/labels.txt');
-      _labels = labelsData.split('\n').where((s) => s.isNotEmpty).toList();
-      final normData = await rootBundle.loadString('assets/normalization.json');
-      _normalizationParams = jsonDecode(normData);
+      final response = await http
+          .post(
+            Uri.parse('$_apiUrl/predict'),
+            headers: {'Content-Type': 'application/json'},
+            body: jsonEncode(body),
+          )
+          .timeout(
+            const Duration(seconds: 30),
+          ); // Longer timeout for cold start
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return data['prediction'] as String;
+      } else {
+        final error = jsonDecode(response.body);
+        throw Exception(error['detail'] ?? 'Prediction failed');
+      }
     } catch (e) {
-      throw Exception('Failed to load assets: $e');
+      if (e.toString().contains('TimeoutException')) {
+        throw Exception('Server is warming up. Please try again in a moment.');
+      }
+      throw Exception('Prediction failed: $e');
     }
   }
 
-  String predict(Map<String, double> inputFeatures) {
-    if (!isLoaded) throw Exception('Model not loaded');
+  /// Get prediction with confidence score
+  Future<Map<String, dynamic>> predictWithConfidence(
+    Map<String, double> inputFeatures,
+  ) async {
+    final body = {
+      'N': inputFeatures['N'],
+      'P': inputFeatures['P'],
+      'K': inputFeatures['K'],
+      'temperature': inputFeatures['temperature'],
+      'humidity': inputFeatures['humidity'],
+      'ph': inputFeatures['ph'],
+      'rainfall': inputFeatures['rainfall'],
+    };
 
-    // 1. Prepare Input
-    final input = <double>[];
-    final mean = List<double>.from(_normalizationParams!['mean']);
-    final std = List<double>.from(_normalizationParams!['std']);
+    try {
+      final response = await http
+          .post(
+            Uri.parse('$_apiUrl/predict'),
+            headers: {'Content-Type': 'application/json'},
+            body: jsonEncode(body),
+          )
+          .timeout(const Duration(seconds: 30));
 
-    // Ordered features expected by the model
-    final featureOrder = [
-      'N',
-      'P',
-      'K',
-      'temperature',
-      'humidity',
-      'ph',
-      'rainfall',
-    ];
-
-    for (int i = 0; i < featureOrder.length; i++) {
-      final key = featureOrder[i];
-      final val = inputFeatures[key];
-      if (val == null) throw Exception('Missing feature: $key');
-      input.add((val - mean[i]) / std[i]);
-    }
-
-    // 2. Reshape & Run
-    final inputTensor = [input];
-    final outputTensor = List.filled(
-      1 * labels.length,
-      0.0,
-    ).reshape([1, labels.length]);
-    _interpreter!.run(inputTensor, outputTensor);
-
-    // 3. Post-process
-    final output = outputTensor[0] as List<double>;
-    int maxIdx = 0;
-    double maxVal = output[0];
-    for (int i = 1; i < output.length; i++) {
-      if (output[i] > maxVal) {
-        maxVal = output[i];
-        maxIdx = i;
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        throw Exception('Prediction failed');
       }
+    } catch (e) {
+      throw Exception('Prediction failed: $e');
     }
-
-    return labels[maxIdx];
   }
 }

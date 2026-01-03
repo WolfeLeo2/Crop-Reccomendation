@@ -16,7 +16,11 @@ import 'package:get_it/get_it.dart';
 
 class FakeInferenceService implements InferenceService {
   @override
-  String predict(Map<String, double>? inputFeatures) => 'rice';
+  Future<String> predict(Map<String, double> inputFeatures) async => 'rice';
+  @override
+  Future<Map<String, dynamic>> predictWithConfidence(
+    Map<String, double> inputFeatures,
+  ) async => {'prediction': 'rice', 'confidence': 0.95};
   @override
   Future<void> init() async {}
   @override
@@ -30,13 +34,25 @@ class FakeWeatherService implements WeatherService {
   Future<Map<String, double>> getCurrentWeather() async {
     return {'temperature': 25.0, 'humidity': 80.0, 'rainfall': 100.0};
   }
+
+  @override
+  Future<List<Map<String, dynamic>>> getSeasonalForecast(
+    double lat,
+    double lon,
+  ) async {
+    return [];
+  }
 }
 
 class FakeHistoryService implements HistoryService {
   @override
   Future<void> init() async {}
   @override
-  Future<void> saveRecommendation(String crop, String details) async {}
+  Future<void> saveRecommendation(
+    String crop,
+    String details, {
+    String? plantingAdvice,
+  }) async {}
   @override
   Future<List<Map<String, dynamic>>> getHistory() async => [];
 }
